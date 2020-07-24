@@ -109,18 +109,26 @@ class TokenClassification(TaskHead):
             for j, tag_id in enumerate(instance_tags):
                 class_probabilities[i, j, tag_id] = 1
 
+        # class_probabilities = logits * 0.0
+        # maxs = torch.argmax(logits, dim=-1).view(-1)
+        # class_probabilities[
+        #     torch.arange(logits.shape[0]), torch.arange(logits.shape[1]), maxs
+        # ] = 1
+
         output = TaskOutput(
             logits=logits,
             probs=class_probabilities,
             mask=mask,
-            tags=[
-                [vocabulary.label_for_index(self.backbone.vocab, idx) for idx in tags]
-                for tags in predicted_tags
-            ],
+            # tags=[
+            #     [vocabulary.label_for_index(self.backbone.vocab, idx) for idx in tags]
+            #     for tags in predicted_tags
+            # ],
         )
 
         if labels is not None:
-            output.loss = self._loss(logits, labels, mask)
+            loss = torch.nn.CrossEntropyLoss()
+            output.loss = loss(logits.view(-1, self.num_labels), labels.view(-1))
+            # output.loss = self._loss(logits, labels, mask)
             for metric in self._metrics.values():
                 metric(class_probabilities, labels, mask)
 
