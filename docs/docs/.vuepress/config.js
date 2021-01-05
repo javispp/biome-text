@@ -1,5 +1,5 @@
 const path = require("path");
-const glob = require("glob")
+const glob = require("glob");
 
 const baseContext = process.env.CONTEXT || 'docs/'
 
@@ -24,8 +24,11 @@ module.exports = {
   base: '/biome-text/',
   plugins: [
     '@goy/svg-icons',
-    '@vuepress/back-to-top'
+    '@vuepress/back-to-top',
+    '@vuepress/active-header-links',
+    'versioning'
   ],
+  theme: 'titanium',
   themeConfig: {
     sidebarDepth: 1,
     displayAllHeaders: false,
@@ -35,7 +38,7 @@ module.exports = {
       { text: 'Documentation', link: '/documentation/'},
       { text: 'Github', link: 'https://github.com/recognai/biome-text' },
       { text: 'Recognai', link: 'https://recogn.ai' },
-    ],
+    ],    
     sidebar: {
       '/api/': [{
           title: 'API',
@@ -68,6 +71,5 @@ module.exports = {
       apiKey: '4f8d6b27d633951bde8c33e391ea6a4d',
       indexName: 'recogn_biome-text'
     },
-    plugins: ['@vuepress/active-header-links'],
   }
 }

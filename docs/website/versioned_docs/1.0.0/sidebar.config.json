@@ -1,0 +1,43 @@
+{
+  "sidebar": {
+    "/api/": [
+      {
+        "title": "API",
+        "children": [],
+        "collapsable": false
+      }
+    ],
+    "/documentation/": [
+      {
+        "title": "Get started",
+        "children": [
+          "",
+          "basics.md"
+        ],
+        "collapsable": false
+      },
+      {
+        "title": "Tutorials",
+        "children": [],
+        "collapsable": false
+      },
+      {
+        "title": "User Guides",
+        "children": [
+          "user-guides/1-nlp-tasks.md",
+          "user-guides/2-configuration.md"
+        ],
+        "collapsable": false
+      },
+      {
+        "title": "Community",
+        "children": [
+          "community/1-contributing.md",
+          "community/2-get_help.md",
+          "community/3-developer_guides.md"
+        ],
+        "collapsable": false
+      }
+    ]
+  }
+}

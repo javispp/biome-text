@@ -25,8 +25,10 @@
     "@goy/vuepress-plugin-svg-icons": "^4.1.0",
     "@vuepress/plugin-active-header-links": "^1.4.1",
     "@vuepress/plugin-back-to-top": "^1.4.1",
+    "renamer": "^2.0.0",
     "vuepress": "^1.4.1",
-    "renamer": "^2.0.0"
+    "vuepress-plugin-versioning": "^4.9.0",
+    "vuepress-theme-titanium": "^4.9.0"
   },
   "dependencies": {
     "vuepress-bar": "^0.3.0"
